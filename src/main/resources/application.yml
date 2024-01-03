@@ -14,6 +14,6 @@ spring:
     gateway:
       routes:
         - id: default-route
-          uri: ${ROUTE_DEFAULT:http://localhost:9001}
+          uri: ${ROUTE_DEFAULT:http://localhost:9001}/
           predicates:
             - Path=/
