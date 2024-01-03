@@ -1,1 +1,19 @@
+server:
+  port: 9000
+  netty:
+    connection-timeout: 2s
+    idle-timeout: 15s
+  shutdown: graceful
 
+spring:
+  application:
+    name: edge-svr
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  cloud:
+    gateway:
+      routes:
+        - id: default-route
+          uri: ${ROUTE_DEFAULT:http://localhost:9001}
+          predicates:
+            - Path=/
