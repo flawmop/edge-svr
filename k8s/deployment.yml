@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edge-svr
+  labels:
+    app: edge-svr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edge-svr
+  template:
+    metadata:
+      labels:
+        app: edge-svr
+    spec:
+      containers:
+        - name: edge-svr
+          image: ghcr.io/flawmop/edge-svr
+          imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command: [ "sh", "-c", "sleep 5" ]
+          ports:
+            - containerPort: 9000
+          env:
+            - name: ROUTE_DEFAULT
+              value: http://welcome-svc
