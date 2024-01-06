@@ -42,7 +42,7 @@ jobs:
         with:
           token: ${{ secrets.DISPATCH_TOKEN }}
           repository: ${{ env.OWNER }}/${{ env.DEPLOY_REPO }}
-          event-type: app_delivery
+          event-type: app_acceptance_delivery
           client-payload: '{
             "app_image": "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.APP_REPO }}",
             "app_name": "${{ env.APP_REPO }}",

@@ -84,3 +84,19 @@ jobs:
         run: |
           docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+  deliver:
+    name: Deliver dev candidate
+    needs: [ build, package ]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Deliver dev candidate
+        uses: peter-evans/repository-dispatch@v2.1.2
+        with:
+          token: ${{ secrets.DISPATCH_TOKEN }}
+          repository: ${{ env.OWNER }}/${{ env.DEPLOY_REPO }}
+          event-type: app_commit_delivery
+          client-payload: '{
+            "app_image": "${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.APP_REPO }}",
+            "app_name": "${{ env.APP_REPO }}",
+            "app_version": "${{ env.VERSION }}"
+          }'
