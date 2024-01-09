@@ -27,4 +27,4 @@ spring:
             scope: openid
         provider:
           keycloak:
-            issuer-uri: ${KEYCLOAK_URI:http://localhost:8080/realms/Portal}
+            issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/Portal}

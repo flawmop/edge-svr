@@ -27,5 +27,5 @@ spec:
           env:
             - name: ROUTE_DEFAULT
               value: http://welcome-svc
-            - name: KEYCLOAK_URI
+            - name: KEYCLOAK_ISSUER_URI
               value: http://portal-keycloak/realms/Portal
