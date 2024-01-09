@@ -17,3 +17,14 @@ spring:
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
           predicates:
             - Path=/
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: edge-svr
+            client-secret: portal-keycloak-secret
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: ${KEYCLOAK_URI:http://localhost:8080/realms/Portal}
