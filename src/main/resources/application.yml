@@ -17,6 +17,10 @@ spring:
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
           predicates:
             - Path=/
+        - id: auth-route
+          uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/Portal}/
+          predicates:
+            - Path=/auth/
   security:
     oauth2:
       client:
