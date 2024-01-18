@@ -18,11 +18,6 @@ spring:
           order: 1
           predicates:
             - Path=/
-        - id: keycloak-route
-          uri: ${ROUTE_KEYCLOAK:http://localhost:8080/realms/Portal}/
-          order: 0
-          predicates:
-            - Path=/realms/, /oauth2/
   security:
     oauth2:
       client:
