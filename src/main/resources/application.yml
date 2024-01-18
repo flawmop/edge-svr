@@ -17,7 +17,7 @@ spring:
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
           order: 0
           predicates:
-            - Path=/, /css/, /js/, /img/, /icon/
+            - Path=/, /css/**, /js/**, /img/**, /icon/**
   security:
     oauth2:
       client:
