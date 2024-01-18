@@ -11,7 +11,7 @@ public class SecurityConfig {
 
   @Bean
   SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
-    return http.authorizeExchange(exchange -> exchange.pathMatchers("/", "/css/*", "/js/*", "/icon/*", "/img/*", "/auth/*").permitAll()
+    return http.authorizeExchange(exchange -> exchange.pathMatchers("/", "/css/*", "/js/*", "/icon/*", "/img/*", "/realms/Portal/.well-known/openid-configuration", "/oauth2/*").permitAll()
                                                       .anyExchange().authenticated())
                                  .oauth2Login(Customizer.withDefaults())
                                  .build();
