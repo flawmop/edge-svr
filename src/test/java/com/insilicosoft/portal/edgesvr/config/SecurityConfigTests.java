@@ -19,8 +19,8 @@ class SecurityConfigTests {
   ReactiveClientRegistrationRepository mockReactiveClientRegistrationRepository;
 
   @Test
-  void whenNotLoggedInAndAccessingUnsecuredButUnavailableThen404() {
-    webClient.get().uri("/favicon.ico").exchange().expectStatus().isNotFound();
+  void whenNotLoggedInAndAccessingUnsecuredButDoesNotExistThen404() {
+    webClient.get().uri("/img/doesNotExist.png").exchange().expectStatus().isNotFound();
   }
 
   @Test
