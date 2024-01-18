@@ -15,9 +15,9 @@ spring:
       routes:
         - id: default-route
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
-          order: 1
+          order: 0
           predicates:
-            - Path=/
+            - Path=/, /css/, /js/, /img/, /icon/
   security:
     oauth2:
       client:
