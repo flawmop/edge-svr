@@ -1,23 +1,31 @@
 server:
-  port: 9000
   netty:
     connection-timeout: 2s
     idle-timeout: 15s
+  port: 9000
   shutdown: graceful
 
 spring:
   application:
     name: edge-svr
-  lifecycle:
-    timeout-per-shutdown-phase: 15s
   cloud:
     gateway:
+      default-filters:
+        - SaveSession
       routes:
         - id: default-route
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
           order: 0
           predicates:
             - Path=/, /css/**, /js/**, /img/**, /icon/**
+  data:
+    redis:
+      connect-timeout: 2s
+      host: localhost
+      port: 6379
+      timeout: 1s
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
   security:
     oauth2:
       client:
@@ -29,3 +37,7 @@ spring:
         provider:
           keycloak:
             issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/Portal}
+  session:
+    timeout: 10m
+    redis:
+      namespace: portal:edge
