@@ -13,11 +13,19 @@ spring:
       default-filters:
         - SaveSession
       routes:
-        - id: default-route
-          uri: ${ROUTE_DEFAULT:http://localhost:9001}/
+        - id: 0-test
+          filters:
+            - TokenRelay=
           order: 0
           predicates:
+            - Method=GET
+            - Path=/test/token
+          uri: ${ROUTE_DEFAULT:http://localhost:9001}/
+        - id: 100-default
+          order: 100
+          predicates:
             - Path=/, /css/**, /js/**, /img/**, /icon/**
+          uri: ${ROUTE_DEFAULT:http://localhost:9001}/
   data:
     redis:
       connect-timeout: 2s
