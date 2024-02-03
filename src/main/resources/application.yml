@@ -21,6 +21,12 @@ spring:
             - Method=GET
             - Path=/test/token
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
+        - id: 1-run
+          order: 1
+          predicates:
+            - Method=GET,POST
+            - Path=/run
+          uri: ${ROUTE_RUN:http://localhost:9002}/
         - id: 100-default
           order: 100
           predicates:
