@@ -1,4 +1,4 @@
-package com.insilicosoft.portal.edgesvr.config;
+package com.insilicosoft.portal.svr.edge.config;
 
 import reactor.core.publisher.Mono;
 

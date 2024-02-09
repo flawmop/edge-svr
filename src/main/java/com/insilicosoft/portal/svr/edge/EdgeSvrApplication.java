@@ -1,4 +1,4 @@
-package com.insilicosoft.portal.edgesvr;
+package com.insilicosoft.portal.svr.edge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
