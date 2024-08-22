@@ -15,13 +15,15 @@ spring:
       routes:
         - id: 0-test
           filters:
-            - TokenRelay=
+            - TokenRelay
           order: 0
           predicates:
             - Method=GET
             - Path=/test/token
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
         - id: 1-run
+          filters:
+            - TokenRelay
           order: 1
           predicates:
             - Method=GET,POST
