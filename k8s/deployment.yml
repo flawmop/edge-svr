@@ -29,5 +29,5 @@ spec:
               value: http://portal-keycloak/realms/Portal
             - name: ROUTE_DEFAULT
               value: http://welcome-svc
-            - name: ROUTE_RUN
-              value: http://run-input-processing-svc
+            - name: ROUTE_SIMULATION
+              value: http://simulation-svc
