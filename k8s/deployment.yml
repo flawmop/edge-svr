@@ -30,4 +30,4 @@ spec:
             - name: ROUTE_DEFAULT
               value: http://welcome-svc
             - name: ROUTE_SUBMISSION
-              value: http://simulation-svc
+              value: http://submission-svc

@@ -21,7 +21,7 @@ spring:
             - Method=GET
             - Path=/test/token
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
-        - id: 1-simulation
+        - id: 1-submission
           filters:
             - TokenRelay
           order: 1
