@@ -27,7 +27,7 @@ spring:
           order: 1
           predicates:
             - Method=GET,POST
-            - Path=/simulation/**
+            - Path=/submission/**
           uri: ${ROUTE_SUBMISSION:http://localhost:9002}/
         - id: 100-default
           order: 100
