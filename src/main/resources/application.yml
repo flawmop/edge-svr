@@ -29,6 +29,13 @@ spring:
             - Method=GET,POST
             - Path=/submission/**
           uri: ${ROUTE_SUBMISSION:http://localhost:9002}/
+        - id: results
+          filters:
+            - TokenRelay
+          predicates:
+            - Method=GET
+            - Path=/results/**
+          uri: ${ROUTE_RESULTS:http://localhost:9004}/
         - id: 100-default
           order: 100
           predicates:

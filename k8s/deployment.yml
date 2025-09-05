@@ -29,5 +29,7 @@ spec:
               value: http://portal-keycloak/realms/Portal
             - name: ROUTE_DEFAULT
               value: http://welcome-svc
+            - name: ROUTE_RESULTS
+              value: http://results-svc
             - name: ROUTE_SUBMISSION
               value: http://submission-svc
