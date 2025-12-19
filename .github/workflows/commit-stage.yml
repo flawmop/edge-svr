@@ -88,11 +88,11 @@ jobs:
           docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
   deliver:
-    name: Deliver dev candidate
+    name: Deliver test candidate
     needs: [ build, package ]
     runs-on: ubuntu-22.04
     steps:
-      - name: Deliver dev candidate
+      - name: Deliver test candidate
         uses: peter-evans/repository-dispatch@v3.0.0
         with:
           token: ${{ secrets.DISPATCH_TOKEN }}
