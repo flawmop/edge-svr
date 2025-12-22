@@ -1,3 +1,3 @@
 # edge-svr
 
-Edge server
+Kubernetes edge server
