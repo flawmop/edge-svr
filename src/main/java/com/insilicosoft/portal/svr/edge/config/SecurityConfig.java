@@ -17,7 +17,7 @@ public class SecurityConfig {
 
   @Bean
   SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
-    return http.authorizeExchange(exchange -> exchange.pathMatchers("/", "/css/*", "/js/*", "/icon/*", "/img/*").permitAll()
+    return http.authorizeExchange(exchange -> exchange.pathMatchers("/", "/favicon.ico", "/robots.txt", "/css/*", "/js/*", "/icon/*", "/img/*").permitAll()
                                                       .anyExchange().authenticated())
                                  .csrf(csrf -> csrf.csrfTokenRepository(CookieServerCsrfTokenRepository.withHttpOnlyFalse())
                                                    .csrfTokenRequestHandler(new XorServerCsrfTokenRequestAttributeHandler()::handle))

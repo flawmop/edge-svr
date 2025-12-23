@@ -39,7 +39,7 @@ spring:
         - id: 100-default
           order: 100
           predicates:
-            - Path=/, /css/**, /js/**, /img/**, /icon/**
+            - Path=/, /favicon.ico, /robots.txt, /css/**, /js/**, /img/**, /icon/**
           uri: ${ROUTE_DEFAULT:http://localhost:9001}/
   data:
     redis:
