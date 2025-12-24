@@ -43,8 +43,16 @@ dependencyManagement {
 }
 
 bootBuildImage {
+  bindings = [ "${projectDir}/bindings:/bindings" ]
+
+  // https://github.com/flawmop/edge-svr/issues/2
+  // builder = "docker.io/paketobuildpacks/builder-jammy-tiny:0.0.423@sha256:851784001118b844a35a167a5afbeae09e112c409657f21d64309c9e60b09579"
+
+  builder = "docker.io/paketobuildpacks/builder-jammy-tiny:0.0.422@sha256:4285dcea4e889817cdf4e9658130137b6dbf6ac81f3798d7e306a9f1065c6b42"
+  runImage = "docker.io/paketobuildpacks/run-jammy-tiny:0.2.90@sha256:18538a16d37a010fc9622c8aeec96974f811b456055964baa1cc95c360af61d9"
   environment = [
-    "BP_JVM_VERSION": "17.*"
+    "BP_JVM_VERSION": "17.*",
+    "SERVICE_BINDING_ROOT": "/bindings"
   ]
 }
 
